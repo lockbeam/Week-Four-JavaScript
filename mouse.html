@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title></title>
+</head>
+<body>
+
+    <!-- Write your HTML content here -->
+    <p id="mouse-me">Move your mouse here</p>
+
+<script>
+
+    //REMINDERS:
+
+    // INTEGER NUMBER VARIABLE
+    // let quantity = 6
+
+    // FLOATING POINT NUMBER VARIABLE
+    // let price = 123.45
+
+    // STRING VARIABLE
+    // let text = "'Hello World'
+    // let moreText = "Double or single quotes are both okay - just try to be consistent"
+
+    // BOOLEAN VARIABLES
+    // let summer = false
+    // let winter = true
+
+    // Write your script here
+
+    let mouseCount = 0
+
+    let message = document.querySelector('#mouse-me') //be specific when you can don't just use the p tag
+
+    message.addEventListener('mouseover', function(){
+        //this event should also increase the mousecount by one
+        mouseCount = mouseCount + 1
+            if (mouseCount == 1) {
+                message.innerHTML = 'Your mouse has hovered over this message ' + mouseCount +' time'
+            }
+            else {
+        message.innerHTML = 'Your mouse has hovered over this message ' + mouseCount +' times'
+        }
+    })
+
+    message.addEventListener('mouseout', function(){
+        message.innerHTML = 'Your mouse is NOT on the message'
+    })
+
+</script>
+
+</body>
+</html>

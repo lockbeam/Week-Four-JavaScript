@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title></title>
+</head>
+<body>
+
+    <!-- Write your HTML content here -->
+    <p>What is the capital of Wisconsin?    </p>
+
+    <button class="wrong-answer">Bayfield</button>
+    <button id="correct-answer">Madison</button>
+    <button class="wrong-answer">Milwaukee</button>
+
+    <p id="result"></p> <!--This will be blank until the user selects an option and then will use JavaScript to fill in the appropriate response-->
+
+<script>
+
+    // Write your script here
+    let correctAnswerButton = document.querySelector('#correct-answer')
+    console.log(correctAnswerButton) //displaying a message to developers to the console
+
+    let defaultCorrectButtonColor = correctAnswerButton.style.background //saving original value of buttons
+    
+    //TRIED TO RESET COLOR FOR RIGHT BUTTON SELECTION AS WELL, DIDN't WORK:
+    // let defaultWrongButtonColor = wrongAnswerButtons.style.background
+
+    let result = document.querySelector('#result') //want to display correct statement when correct selection is made
+   
+    let wrongAnswerButtons = document.querySelectorAll('.wrong-answer')
+    console.log(wrongAnswerButtons) //to track work in developer tools - both wrong answers should be visable
+   
+    // add an event listener to both wrong answer buttons - with a loop! more common way:
+    wrongAnswerButtons.forEach( function(wrongAnswerButton) {
+    //node list            differnt name from wrongAnswerButtons  remember curly braces
+    //we're asking wrong answer buttons to repeat one time for each element in this node list and call the wronganswerbutton function one time for each element in that list
+        wrongAnswerButton.addEventListener('click', function() {
+            result.innerHTML = 'Wrong answer, try again!'
+            correctAnswerButton.style.background = defaultCorrectButtonColor //first resets the correct answer button to default
+            wrongAnswerButton.style.background = 'pink' //then assigns pink color to wrong button
+        } )
+    } )
+
+    // //DIFFERENT TYPE OF LOOPING CALLED IMPERATIVE STYLE PROGRAMMING:
+    //     for(let x=0 ; x< wrongAnswerButtons.length; x++) {
+    //        // event counter  how many wrong answers, when do you stop the loop  increase counter by one
+    //         let wrongAnswerButton = wrongAnswerButtons[x]
+            
+    //         wrongAnswerButton.addEventListener('click', function() {
+    //         result.innerHTML = 'Wrong answer, try again!'
+    //         correctAnswerButton.style.background = defaultCorrectButtonColor //first resets the correct answer button to default
+    //         wrongAnswerButton.style.background = 'pink' //then assigns pink color to wrong button
+    //     } )
+    //     }
+
+
+
+
+    //what event do we need to respond to? Correct answer selection:
+    correctAnswerButton.addEventListener('click', function() {
+        result.innerHTML = 'Correct answer!'
+       //  wrongAnswerButtons.stlye.background = defaultWrongButtonColor
+        correctAnswerButton.style.background = 'lightgreen'
+    } )
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title></title>
+</head>
+<body>
+
+    <!-- Write your HTML content here -->
+    <button>Click here!</button>
+
+    <!--this is to create a space for the real time width display in the script below-->
+    <div>
+        <h2 id="width"></h2>
+    </div>
+
+
+<script>
+
+    // Write your script here
+    // let creates a variable
+    // document is whole current webpage
+    // queryselector use CSS selectors to find an element
+    // queryselector only finds the first element
+    let button = document.querySelector('button')
+
+    //Function definition is like a variable, you can pass it around. It's an object.   
+    //This code below watches for an event (clcik) to happen and then supplies an action through function()
+    button.addEventListener('click', function() {
+        alert('You clicked the button!')
+        button.innerHTML = "You clicked the button!"
+        // above will display the message on the button once clicked and below changes color once clicked
+        button.style.backgroundColor = 'green'
+
+        // this would remove the button after being clicked
+        // button.remove()
+    })
+
+    //Javascript to display the browser screen width
+    //and update it as the window is resized
+
+    function displayWidth() {
+        let width = document.body.scrollWidth;  //asking the document How Wide Are You?
+        let widthDisplayEl = document.querySelector('#width')  //Finding my element to display the width in
+        // Reminder that # is a CSS selector for ID
+        widthDisplayEl.innerHTML = `Window width = ${width} pixels`
+        // CAREFUL - NEED TO USE BACKTICK ` NOT APOSTROPHE
+    }
+
+    displayWidth() //this calls displayWidth to display initial size.
+
+    // Add a resize event listener to the window object that updates when the window is resized
+    window.addEventListener('resize', displayWidth)
+
+</script>
+
+</body>
+</html>
