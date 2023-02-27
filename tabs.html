@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Tabbed Content</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+    <!-- Write your HTML content here -->
+
+    <h1>Favorite Foods</h1>
+
+    <div id="tabs">
+        <!--data content ids should match with div ids in second block-->
+        <button data-content-id="pizza" class="tab-button">Pizza</button>
+        <button data-content-id="cheesecake" class="tab-button">Cheesecake</button>
+        <button data-content-id="sushi" class="tab-button">Sushi</button>
+    </div>
+
+    <div id="pizza" class="tab-content">Pizza exists</div>
+    <div id="cheesecake" class="tab-content">Cheesecake is ominous</div>
+    <div id="sushi" class="tab-content">Sushi sushisn't</div>
+
+
+<script>
+
+    // Write your script here
+    let buttons = document.querySelectorAll('.tab-button')
+    // the above allows us to pull in for the whole class tab-button - could have two or hundreds of tabs
+    let tabContents = document.querySelectorAll('.tab-content')
+
+    //hide all the tab content for page landing:
+    tabContents.forEach( function(divEL) {
+        divEL.style.display = 'none' //this is a CSS style display
+    })
+
+    tabContents[0].style.display = 'block' // show first tab - extra coding because earlier we hid everything on landing
+    buttons[0].classList.add('active') //makes the pizza tab 'active' for CSS styles
+
+    buttons.forEach( function(button){
+
+        button.addEventListener('click', function (){
+            //hide all content - same code as above
+            tabContents.forEach( function(divEL) {
+                divEL.style.display = 'none' //this is a CSS style display
+    })
+
+            //remove the active class and add the active class to the button that was clicked
+            buttons.forEach(function(button) {
+                button.classList.remove('active')
+            })
+
+            this.classList.add('active')
+            
+            //show content for specific tab
+            //THIS is used to signify whichever button was clicked
+            let contentId = this.getAttribute('data-content-id') //this is the element that generates the event
+
+            let tabContent = document.querySelector('#' + contentId) // like #pizza
+            tabContent.style.display = 'block' //CSS - spelling matters!
+        })
+    })
+
+</script>
+
+</body>
+</html>

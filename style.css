@@ -1,0 +1,29 @@
+.tab-button {
+    background-color: fuchsia;
+    border: none;
+    padding: 10px;
+    margin: 1px;
+    outline: none;
+    font-weight: bolder;
+}
+
+.tab-button:hover {
+    background-color: mediumspringgreen;
+}
+
+.tab-button.active {
+    /* so these are only applied to an element with class tab-button and class active*/
+    background-color: yellowgreen;
+}
+
+#tabs {
+    background-color: paleturquoise;
+    border: 1px solid rebeccapurple;
+}
+
+.tab-content {
+    border-right: 1px solid rebeccapurple;
+    border-left: 1px solid rebeccapurple;
+    border-bottom: 1px solid rebeccapurple;
+    padding: 10px;
+}
