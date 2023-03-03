@@ -146,6 +146,8 @@
         //add the new li element as a child of the ul element
         studentList.appendChild(newListItem)
 
+        newListItem.addEventListener('click', checkToggle)
+
         //clear the text in the inputs
         nameInput.value = ''
         idInput.value = ''
@@ -158,12 +160,36 @@
     //end adding to list
     })
 
-    document.getElementById("#student-list").addEventListener("click",function(e) {
-  if (e.target && e.target.matches("li.item")) {
-    e.target.className = "selected"; // new class name here
-    }
-});
+    newKistItem.forEach( function(divEL) {
+        divEL.style.display = 'none' //this is a CSS style display
+    })
 
+    function checkToggle() {
+        this.classList.toggle("selected");
+        this.style.textDecoration = 'none';
+        //I don't like the strikethrough
+    }
+
+    removeButton.addEventListener('click', function() {
+	// find all of the elements with class 'selected'
+  // elementsToDelete is a NodeList - it's live - it updates if
+  // the page changes - so if an element that's selected is removed,
+  // it will also be removed from elementsToDelete
+  let elementsToDelete = document.querySelectorAll('#selected')
+	elementsToDelete.forEach( function(element) {
+  	element.remove()
+  })
+})
+
+
+
+// THE ADDING AN EVENT LISTENER TO JUST ONE LI ITEM WAS A TOUGH ONE - GRAVEYARD OF FAILED ATTEMPTS BELOW
+
+//     document.getElementById("#student-list").addEventListener("click",function(e) {
+//   if (e.target && e.target.matches("li.item")) {
+//     e.target.className = "selected"; // new class name here
+//     }
+// });
 
 
     // var list_items = document.querySelectorAll('student-list>ul>li');
