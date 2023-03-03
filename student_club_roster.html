@@ -160,7 +160,7 @@
     //end adding to list
     })
 
-    newKistItem.forEach( function(divEL) {
+    newListItem.forEach( function(divEL) {
         divEL.style.display = 'none' //this is a CSS style display
     })
 
@@ -175,7 +175,7 @@
   // elementsToDelete is a NodeList - it's live - it updates if
   // the page changes - so if an element that's selected is removed,
   // it will also be removed from elementsToDelete
-  let elementsToDelete = document.querySelectorAll('#selected')
+  let elementsToDelete = document.querySelectorAll('.selected')
 	elementsToDelete.forEach( function(element) {
   	element.remove()
   })
